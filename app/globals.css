@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Romantic palette */
+@layer base {
+  :root {
+    --rose-50: #fff1f2;
+  }
+  html, body {
+    height: 100%;
+  }
+}
+
+/* Soft pink gradient + subtle hearts pattern */
+.bg-petal {
+  background:
+    radial-gradient(20px 20px at 20px 20px, rgba(255,255,255,.35) 20%, transparent 21%) 0 0 / 40px 40px,
+    linear-gradient(180deg, #ffe3ec 0%, #ffd6e7 30%, #ffd1ef 60%, #ffeaf5 100%);
+}
+
+/* Sparkles overlay */
+.sparkles:before, .sparkles:after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8) 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,0.7) 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,0.6) 50%, transparent 52%);
+  animation: twinkle 5s infinite alternate ease-in-out;
+}
+.sparkles:after {
+  filter: blur(1px);
+  opacity: .6;
+}
+
+@keyframes twinkle {
+  0% { opacity: .4; transform: translateY(0px); }
+  100% { opacity: .9; transform: translateY(-6px); }
+}
